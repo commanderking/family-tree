@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@types/antd": "^1.0.0",
+    "antd": "^4.1.4",
     "gatsby": "^2.20.25",
     "gatsby-cli": "^2.11.13",
     "gatsby-image": "^2.3.4",
@@ -20,6 +22,7 @@
     "react-helmet": "^6.0.0"
   },
   "devDependencies": {
+    "gatsby-plugin-typescript": "^2.3.3",
     "prettier": "2.0.4"
   },
   "keywords": [
