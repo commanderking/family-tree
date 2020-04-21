@@ -1,7 +1,10 @@
-import React from "react"
+import React, { useEffect } from "react"
 import family from "../content/family.json"
-import Tree from "react-d3-tree"
 import { curry } from "rambda"
+// https://www.gatsbyjs.org/docs/debugging-html-builds/#how-to-check-if-code-classlanguage-textwindowcode-is-defined
+// https://github.com/gatsbyjs/gatsby/issues/309
+const TreeModule =
+  typeof window !== `undefined` ? require("react-d3-tree") : null
 
 // reference for traversing trees
 
@@ -33,12 +36,14 @@ const TreeGraph = () => {
 
   return (
     <div id="treeWrapper" style={{ width: "1000px", height: "500px" }}>
-      <Tree
-        data={tree}
-        pathFunc="step"
-        nodeSize={{ x: 250, y: 50 }}
-        translate={{ x: 100, y: 200 }}
-      />
+      {TreeModule && (
+        <TreeModule.Tree
+          data={tree}
+          pathFunc="step"
+          nodeSize={{ x: 250, y: 50 }}
+          translate={{ x: 100, y: 200 }}
+        />
+      )}
     </div>
   )
 }
