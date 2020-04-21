@@ -15,9 +15,7 @@ function hasChildren(node) {
 
 const mapTree = curry(function map(mapFn, node) {
   const newNode = mapFn(node)
-  console.log("node", node)
   if (hasChildren(node)) {
-    console.log("has children")
     newNode.children = node.children.map(mapTree(mapFn))
   }
   return newNode
@@ -33,7 +31,6 @@ const mapFunction = node => {
 const TreeGraph = () => {
   const tree = mapTree(mapFunction, family[0])
 
-  console.log("tree", tree)
   return (
     <div id="treeWrapper" style={{ width: "1000px", height: "500px" }}>
       <Tree
