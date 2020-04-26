@@ -7,10 +7,10 @@ import { Row, Col } from "antd"
 const IndexPage = () => {
   return (
     <Row gutter={[16, 16]}>
-      <Col span={4}>
+      <Col span={6}>
         <SideNav />
       </Col>
-      <Col span={8}>
+      <Col span={6}>
         <TreeGraph />
       </Col>
     </Row>
