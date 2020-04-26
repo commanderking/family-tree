@@ -35,13 +35,23 @@ const TreeGraph = () => {
   const tree = mapTree(mapFunction, family[0])
 
   return (
-    <div id="treeWrapper" style={{ width: "1000px", height: "500px" }}>
+    <div
+      id="treeWrapper"
+      style={{
+        width: "1000px",
+        height: "500px",
+        border: "1px solid gray",
+        padding: "10px",
+      }}
+    >
       {TreeModule && (
         <TreeModule.Tree
           data={tree}
           pathFunc="step"
-          nodeSize={{ x: 250, y: 50 }}
-          translate={{ x: 100, y: 200 }}
+          nodeSize={{ x: 150, y: 50 }}
+          translate={{ x: 500, y: 200 }}
+          initialDepth={1}
+          orientation="vertical"
         />
       )}
     </div>
