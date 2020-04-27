@@ -1,8 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, SetStateAction, Dispatch, Children } from "react"
 import { Tree, Input } from "antd"
-import family from "../content/family.json"
 
-const SideNav = () => {
+type Props = {
+  setSelectedFamilyMember: Dispatch<SetStateAction<string>>
+  familyTree: Array<any>
+}
+
+const SideNav = ({ setSelectedFamilyMember, familyTree }: Props) => {
   const [treeState, setTreeState] = useState({
     expandedKeys: [],
     autoExpandParent: true,
@@ -14,13 +18,18 @@ const SideNav = () => {
       autoExpandParent: false,
     })
   }
+
+  const handleSelect = (keys, event) => {
+    setSelectedFamilyMember(event.node.key)
+  }
   return (
     <div>
       <Tree
-        treeData={family}
+        treeData={familyTree}
         expandedKeys={treeState.expandedKeys}
         autoExpandParent={treeState.autoExpandParent}
         onExpand={handleExpand}
+        onSelect={handleSelect}
       />
     </div>
   )
