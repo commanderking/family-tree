@@ -1,7 +1,7 @@
 import React from "react"
 import { Router } from "@reach/router"
 import { Link } from "gatsby"
-import { login, isAuthenticated, getProfile } from "../utils/auth"
+import { login, isAuthenticated, getProfile, logout } from "../utils/auth"
 // auth0 reference :https://auth0.com/blog/securing-gatsby-with-auth0/
 
 const Login = ({ path }) => <p>Login</p>
@@ -23,7 +23,16 @@ const AdminPage = () => {
     <div>
       <nav>
         <Link to="/admin">Admin</Link> <Link to="/admin/login">Login</Link>{" "}
-        <Link to="/account/billing">Billing</Link>{" "}
+        <Link to="/account/billing">Billing</Link>
+        <a
+          href="#logout"
+          onClick={e => {
+            logout()
+            e.preventDefault()
+          }}
+        >
+          Log Out
+        </a>
       </nav>
       <Router>
         <Login path="/admin" />
