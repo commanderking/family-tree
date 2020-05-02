@@ -4,12 +4,7 @@ import { Link } from "gatsby"
 import { login, isAuthenticated, getProfile, logout } from "../utils/auth"
 // auth0 reference :https://auth0.com/blog/securing-gatsby-with-auth0/
 
-const Login = ({ path }) => <p>Login</p>
-const Admin = ({ path }) => (
-  <div>
-    <h1>Admin </h1>
-  </div>
-)
+const Admin = ({ path }) => <p>Admin Page</p>
 
 const AdminPage = () => {
   if (!isAuthenticated()) {
@@ -22,8 +17,7 @@ const AdminPage = () => {
   return (
     <div>
       <nav>
-        <Link to="/admin">Admin</Link> <Link to="/admin/login">Login</Link>{" "}
-        <Link to="/account/billing">Billing</Link>
+        <Link to="/">Home</Link>
         <a
           href="#logout"
           onClick={e => {
@@ -35,8 +29,7 @@ const AdminPage = () => {
         </a>
       </nav>
       <Router>
-        <Login path="/admin" />
-        <Admin path="/admin/login" />
+        <Admin path="/admin" />
       </Router>
     </div>
   )
