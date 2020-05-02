@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import family from "../content/family.json"
 import { curry } from "rambda"
 // https://www.gatsbyjs.org/docs/debugging-html-builds/#how-to-check-if-code-classlanguage-textwindowcode-is-defined
 // https://github.com/gatsbyjs/gatsby/issues/309
@@ -32,7 +31,8 @@ const mapFunction = node => {
 }
 
 const TreeGraph = () => {
-  const tree = mapTree(mapFunction, family[0])
+  const familyTree = [] // Need to update this to make call to get json now
+  const tree = mapTree(mapFunction, {})
 
   return (
     <div
