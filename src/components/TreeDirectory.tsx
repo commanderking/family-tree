@@ -1,8 +1,7 @@
-import React, { useState, useMemo } from "react"
+import React, { useState, useMemo, useEffect } from "react"
 import SideNav from "../components/SideNav"
 import "antd/dist/antd.css"
 import { Row, Col } from "antd"
-import familyTree from "../content/family.json"
 import _ from "lodash"
 import Profile from "./familyMemberProfile/Profile"
 import { FamilyMember } from "../types/FamilyTree"
@@ -26,11 +25,27 @@ const getFamilyMembers = (familyTree: FamilyMember[]) => {
 }
 
 const TreeDirectory = () => {
+  const [familyTree, setFamilyTree] = useState([])
   const [selectedFamilyMember, setSelectedFamilyMember] = useState(null)
 
+  useEffect(() => {
+    fetch("https://jiapu.s3.amazonaws.com/family.json", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(response => response.json())
+      .then(resultData => {
+        setFamilyTree(resultData)
+      })
+  }, [])
   const familyMembers = useMemo(() => getFamilyMembers(familyTree), [
     familyTree,
   ])
+
+  if (!familyTree) {
+    return <div>Loading...</div>
+  }
 
   const familyMember = familyMembers.find(member => {
     return member.key === selectedFamilyMember
