@@ -28,7 +28,7 @@ const Profile = ({ familyMember }: Props) => {
       allImageSharp {
         edges {
           node {
-            fixed(width: 600, height: 600) {
+            fixed(width: 400, height: 400) {
               ...GatsbyImageSharpFixed
             }
           }
