@@ -1,5 +1,5 @@
-import React, { useState, SetStateAction, Dispatch, Children } from "react"
-import { Tree, Input } from "antd"
+import React, { useState, SetStateAction, Dispatch } from "react"
+import { Tree } from "antd"
 
 type Props = {
   setSelectedFamilyMember: Dispatch<SetStateAction<string>>
@@ -26,6 +26,7 @@ const SideNav = ({ setSelectedFamilyMember, familyTree }: Props) => {
     <div>
       <Tree
         treeData={familyTree}
+        showLine={true}
         expandedKeys={treeState.expandedKeys}
         autoExpandParent={treeState.autoExpandParent}
         onExpand={handleExpand}

@@ -6,30 +6,13 @@ import { useStaticQuery, graphql } from "gatsby"
 type Props = { familyMember: FamilyMember | null }
 
 const Profile = ({ familyMember }: Props) => {
-  // This doesn't work We'd want this to be dynamic with familyMemebr.image, but with the way the data gets
-  // loaded on build, this is impossible: https://github.com/gatsbyjs/gatsby/issues/2293
-
-  // const data = useStaticQuery(graphql`
-  //   query {
-  //     file(relativePath: { eq: familyMember.image }) {
-  //       childImageSharp {
-  //         # Specify a fixed image and fragment.
-  //         # The default width is 400 pixels
-  //         fixed(width: 600, height: 600) {
-  //           ...GatsbyImageSharpFixed
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-
   const data = useStaticQuery(graphql`
     query {
       allImageSharp {
         edges {
           node {
-            fixed(width: 400, height: 400) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 500) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -42,7 +25,7 @@ const Profile = ({ familyMember }: Props) => {
       ? data.allImageSharp.edges.find(element => {
           // Match string after final slash
           return (
-            element.node.fixed.src.split("/").pop() ===
+            element.node.fluid.src.split("/").pop() ===
             encodeURI(familyMember.image)
           )
         })
@@ -50,13 +33,13 @@ const Profile = ({ familyMember }: Props) => {
 
   let image = null
   if (correctNode) {
-    image = correctNode.node.fixed
+    image = correctNode.node.fluid
   }
 
   return Boolean(familyMember) ? (
-    <div>
+    <div style={{ width: "500px" }}>
       <h3>{familyMember.title}</h3>
-      {image && <Img fixed={image} />}
+      {image && <Img fluid={image} />}
     </div>
   ) : (
     <div>Select a Member to see more info</div>

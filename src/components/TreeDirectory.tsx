@@ -5,6 +5,7 @@ import { Row, Col } from "antd"
 import _ from "lodash"
 import Profile from "./familyMemberProfile/Profile"
 import { FamilyMember } from "../types/FamilyTree"
+import familyTree from "../../content/family.json"
 
 var flattenChildren = function (tree, key, collection) {
   if (!tree[key] || tree[key].length === 0) return
@@ -25,23 +26,25 @@ const getFamilyMembers = (familyTree: FamilyMember[]) => {
 }
 
 const TreeDirectory = () => {
-  const [familyTree, setFamilyTree] = useState([])
+  // const [familyTree, setFamilyTree] = useState([])
   const [selectedFamilyMember, setSelectedFamilyMember] = useState(null)
 
-  useEffect(() => {
-    fetch("https://jiapu.s3.amazonaws.com/family.json", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(response => response.json())
-      .then(resultData => {
-        setFamilyTree(resultData)
-      })
-  }, [])
+  // useEffect(() => {
+  //   fetch("https://jiapu.s3.amazonaws.com/family.json", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then(response => response.json())
+  //     .then(resultData => {
+  //       setFamilyTree(resultData)
+  //     })
+  // }, [])
   const familyMembers = useMemo(() => getFamilyMembers(familyTree), [
     familyTree,
   ])
+
+  console.log("familyMembers", familyMembers)
 
   if (!familyTree) {
     return <div>Loading...</div>
