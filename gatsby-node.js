@@ -26,6 +26,9 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
      * from breaking the app.)
      */
     actions.setWebpackConfig({
+      resolve: {
+        modules: [path.resolve(__dirname, "src"), "node_modules"],
+      },
       module: {
         rules: [
           {

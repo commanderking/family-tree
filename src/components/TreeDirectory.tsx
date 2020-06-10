@@ -26,20 +26,7 @@ const getFamilyMembers = (familyTree: FamilyMember[]) => {
 }
 
 const TreeDirectory = () => {
-  // const [familyTree, setFamilyTree] = useState([])
   const [selectedFamilyMember, setSelectedFamilyMember] = useState(null)
-
-  // useEffect(() => {
-  //   fetch("https://jiapu.s3.amazonaws.com/family.json", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then(response => response.json())
-  //     .then(resultData => {
-  //       setFamilyTree(resultData)
-  //     })
-  // }, [])
   const familyMembers = useMemo(() => getFamilyMembers(familyTree), [
     familyTree,
   ])
