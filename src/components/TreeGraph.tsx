@@ -1,12 +1,13 @@
 import React, { useEffect } from "react"
 import { curry } from "rambda"
+import familyTree from "../../content/family.json"
+
 // https://www.gatsbyjs.org/docs/debugging-html-builds/#how-to-check-if-code-classlanguage-textwindowcode-is-defined
 // https://github.com/gatsbyjs/gatsby/issues/309
 const TreeModule =
   typeof window !== `undefined` ? require("react-d3-tree") : null
 
 // reference for traversing trees
-
 function hasChildren(node) {
   return (
     typeof node === "object" &&
@@ -31,8 +32,9 @@ const mapFunction = node => {
 }
 
 const TreeGraph = () => {
-  const familyTree = [] // Need to update this to make call to get json now
-  const tree = mapTree(mapFunction, {})
+  console.log("familyTree", familyTree)
+  const tree = mapTree(mapFunction, familyTree[0])
+  console.log("tree", tree)
 
   return (
     <div

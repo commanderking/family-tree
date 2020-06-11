@@ -5,6 +5,7 @@
  */
 
 // You can delete this file if you're not using it
+const path = require("path")
 
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
@@ -26,6 +27,9 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
      * from breaking the app.)
      */
     actions.setWebpackConfig({
+      resolve: {
+        modules: [path.resolve(__dirname, "src"), "node_modules"],
+      },
       module: {
         rules: [
           {
