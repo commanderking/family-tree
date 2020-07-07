@@ -31,8 +31,6 @@ const TreeDirectory = () => {
     familyTree,
   ])
 
-  console.log("familyMembers", familyMembers)
-
   if (!familyTree) {
     return <div>Loading...</div>
   }

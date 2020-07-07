@@ -35,9 +35,24 @@ const Profile = ({ familyMember }: Props) => {
         })
       : null
 
-  let image = null
+  let treeBranchImage = null
   if (correctNode) {
-    image = correctNode.node.fluid
+    treeBranchImage = correctNode.node.fluid
+  }
+
+  let familyPhotoImage
+  const familyPhotoNode = familyMember?.familyPhoto
+    ? data.allImageSharp.edges.find(element => {
+        // Match string after final slash
+        return (
+          element.node.fluid.src.split("/").pop() ===
+          encodeURI(familyMember.familyPhoto)
+        )
+      })
+    : null
+
+  if (familyPhotoNode) {
+    familyPhotoImage = familyPhotoNode.node.fluid
   }
 
   // TODO: Memoize this so hash not calculated on every re-render.
@@ -49,9 +64,10 @@ const Profile = ({ familyMember }: Props) => {
       .filter(Boolean) || []
 
   return Boolean(familyMember) ? (
-    <div style={{ width: "500px" }}>
+    <div style={{ width: "600px" }}>
       <h3>{familyMember.title}</h3>
-      {image && <Img fluid={image} />}
+      {treeBranchImage && <Img fluid={treeBranchImage} />}
+      {familyPhotoImage && <Img fluid={familyPhotoImage} />}
       <MemberInfo members={members} />
     </div>
   ) : (
