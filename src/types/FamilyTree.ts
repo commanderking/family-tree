@@ -3,6 +3,7 @@ export type FamilyMember = {
   key: string
   children?: FamilyMember[]
   image?: string
+  familyPhoto?: string
   members: string[]
 }
 

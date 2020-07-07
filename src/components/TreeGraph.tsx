@@ -32,9 +32,7 @@ const mapFunction = node => {
 }
 
 const TreeGraph = () => {
-  console.log("familyTree", familyTree)
   const tree = mapTree(mapFunction, familyTree[0])
-  console.log("tree", tree)
 
   return (
     <div
