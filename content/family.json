@@ -56,7 +56,7 @@
                   {
                     "title": "陆省予 - 翁瑞霙",
                     "key": "0-0-1-0-1-0",
-                    "image": "金省予.png",
+                    "image": "陆省予.png",
                     "children": [
                       {
                         "title": "陆秉宏",
@@ -166,13 +166,6 @@
                 "title": "金砺中 - 金幼静",
                 "key": "0-0-1-1-2",
                 "image": "金砺中.png",
-                "familyPhoto": "family_photo_jinlizhong.png",
-                "members": [
-                  "jinLiZhongRobertKing",
-                  "jinYouJingYujinKing",
-                  "jinJieFoJeffreyKing",
-                  "jinLeShanAllisonKing"
-                ],
                 "children": [
                   {
                     "title": "金杰佛(Jeffrey King)",
@@ -319,9 +312,9 @@
             ]
           },
           {
-            "title": "金静瑜 - 车承纯",
+            "title": "金静愉 - 车承纯",
             "key": "0-0-1-6",
-            "image": "金静瑜.png",
+            "image": "金静愉.png",
             "children": [
               {
                 "title": "车水 - 牛晓迪",
@@ -390,9 +383,9 @@
                 ]
               },
               {
-                "title": "卫建平 - 陈丽萍",
+                "title": "卫健平 - 陈丽萍",
                 "key": "0-0-2-1-3",
-                "image": "卫建平.png",
+                "image": "卫健平.png",
                 "children": [
                   {
                     "title": "卫晟",
