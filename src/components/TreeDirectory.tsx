@@ -26,7 +26,7 @@ const getFamilyMembers = (familyTree: FamilyMember[]) => {
 }
 
 const TreeDirectory = () => {
-  const [selectedFamilyMember, setSelectedFamilyMember] = useState(null)
+  const [selectedFamilyMember, setSelectedFamilyMember] = useState("0-0-1-1")
   const familyMembers = useMemo(() => getFamilyMembers(familyTree), [
     familyTree,
   ])

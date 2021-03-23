@@ -8,7 +8,7 @@ type Props = {
 
 const SideNav = ({ setSelectedFamilyMember, familyTree }: Props) => {
   const [treeState, setTreeState] = useState({
-    expandedKeys: [],
+    expandedKeys: ["0-0", "0-0-1", "0-0-1-1"],
     autoExpandParent: true,
   })
 
