@@ -28,7 +28,6 @@ const SideNav = ({ setSelectedFamilyMember, familyTree }: Props) => {
         treeData={familyTree}
         showLine={true}
         expandedKeys={treeState.expandedKeys}
-        // defaultExpandAll
         autoExpandParent={treeState.autoExpandParent}
         onExpand={handleExpand}
         onSelect={handleSelect}
