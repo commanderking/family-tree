@@ -9,7 +9,7 @@
     "@types/antd": "^1.0.0",
     "antd": "^4.1.4",
     "auth0-js": "^9.13.2",
-    "gatsby": "^2.20.25",
+    "gatsby": "^4.25.7",
     "gatsby-cli": "^2.11.13",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-manifest": "^2.3.5",
